@@ -1,0 +1,14 @@
+# render.yaml
+services:
+  - type: web
+    name: rota-pharma-csv
+    env: python
+    plan: free
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "python app.py"
+    autoDeploy: true
+
+cron:
+  - name: atualizar-posicoes
+    schedule: "*/5 * * * *"
+    command: "python main.py"

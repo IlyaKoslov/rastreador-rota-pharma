@@ -1,0 +1,5 @@
+# requirements.txt
+zeep==4.2.1
+pandas==2.2.2
+flask==3.0.2
+pytz==2024.1
