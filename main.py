@@ -80,6 +80,7 @@ def atualizar_csv():
         df_antigo.loc[df_antigo["placa"].isin(df_novo["placa"]), "status"] = "Histórico"
 
     df_final = pd.concat([df_antigo, df_novo], ignore_index=True)
+    df_final["_refresh"] = pd.Timestamp.now(tz=TZ).isoformat()
     df_final.to_csv(CSV_PATH, index=False, encoding="utf-8")
     print("🔁 Base atualizada com", len(df_novo), "placas[forçado]")
 
